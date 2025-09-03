@@ -1,10 +1,23 @@
 import { GoogleGenAI, Type } from "@google/genai";
-// FIX: Import KundliDetails type to be used in generateKundliMatch function.
 import { KundliDetails } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+// Safely access the API key from environment variables to prevent crashes in browsers
+const API_KEY = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : undefined;
+
+// Initialize the AI client only if the API key is available
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
+
+const missingApiKeyError = "A pawi khawp mai, AI service a inpeih lo. API key-a harsatna a awm anih hmel.";
+
+if (!API_KEY) {
+  console.error("Gemini API key is not configured. Please set the API_KEY environment variable.");
+}
+
 
 export const generateBio = async (keywords: string): Promise<string> => {
+  if (!ai) {
+    return missingApiKeyError;
+  }
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
@@ -18,6 +31,9 @@ export const generateBio = async (keywords: string): Promise<string> => {
 };
 
 export const generateCompatibilityReport = async (desc1: string, desc2: string): Promise<string> => {
+  if (!ai) {
+    return missingApiKeyError;
+  }
   try {
     const prompt = `
       Mi pahnih inlaichinna inmil dan tur anmahni insawifiahna atanga zirchiang rawh. Inlaichinna psychology thil zirchianna atanga report chiang tak siam rawh. Khawvelnunge, arsi, a nih loh leh thil mak dang lam reng reng sawi lang suh.
@@ -49,6 +65,9 @@ export const generateCompatibilityReport = async (desc1: string, desc2: string):
 };
 
 export const generateKundliMatch = async (details1: KundliDetails, details2: KundliDetails): Promise<string> => {
+  if (!ai) {
+    return missingApiKeyError;
+  }
   try {
     const prompt = `
       Nupa tuak ni thei turte tan nupui/pasal zawnna website-a hman tur "Cosmic Compatibility" (Arsi atanga Inmilna) report siam rawh. A aw ki chu a tha zawng, tunlai mil, leh fuihna lam hawi ni se.
