@@ -48,27 +48,21 @@ export const generateCompatibilityReport = async (desc1: string, desc2: string):
   }
 };
 
-// FIX: Add generateKundliMatch function to resolve import error in KundliMatcher.tsx.
 export const generateKundliMatch = async (details1: KundliDetails, details2: KundliDetails): Promise<string> => {
   try {
     const prompt = `
-      Nupa tuak ni thei turte tan nupui/pasal zawnna website-a hman tur Kundli inmilna (arsi lam inmilna) report awlsam tak siam rawh.
-      A aw ki chu a tha zawng leh fuihna lam hawi ni se, an thatna laite sawi lang bawk ang che.
-      Arsi lem ziak buai lovin, an pian hun leh hmun atanga a tlangpui chauh pe chhuak rawh.
+      Nupa tuak ni thei turte tan nupui/pasal zawnna website-a hman tur "Cosmic Compatibility" (Arsi atanga Inmilna) report siam rawh. A aw ki chu a tha zawng, tunlai mil, leh fuihna lam hawi ni se.
+      An pian hun atanga an arsi lam inmilna zirchiang rawh. Tawngkam hriat har lutuk emaw sakhaw lam hawi a tam loh nan, an nungchang inmil theih dan lam hawia hrilhfiahna pe zawk ang che.
 
-      Vedic astrology atanga an inmilna zirchiang la, Guna Milan (Ashtakoot) ang chi te ngaihtuah tel ang che.
-      36-a engzat nge an hmuh tarlang la, heng Koota-te hi a tawi tein hrilhfiah bawk ang che:
-      1. Varna/Jati
-      2. Vashya
-      3. Tara/Dina
-      4. Yoni
-      5. Graha Maitri
-      6. Gana
-      7. Bhakoot/Rasi
-      8. Nadi
+      Report hetiang hian duang ang che:
+      1. **Inmilna Tlangpui (100-ah):** 100-ah engzat nge an inmil tih ziak la, a tawi tein sawifiah bawk ang che.
+      2. **Nungchang Inmilna:** An mizia inmil theih dan tur sawifiah rawh. Inremna leh inpumkhatna awm theihna laite leh an thanlenpui theihna tur laite sawi lang ang che.
+      3. **Inbiakpawhna Dan:** An arsi dinhmun atanga an inbiakpawh theih dan tur zirchiang rawh.
+      4. **Thil Pawimawh & Nun Kawng Inang:** An tum leh nunah an thil ngaih pawimawh zawngte inmil theihna laite sawi rawh.
+      5. **Inlaichinna Thatna Turte:** An inlaichinna-a thatna tur langsar 3-5 vel sawi lang rawh.
+      6. **Hriat Tur Pawimawhte:** Fimkhur taka an ngaihtuah dun theih tur harsatna awm thei 2-3 vel sawi lang ang che.
 
-      An inmilna tlangpui leh harsatna an tawh theih laka fuihna thu dimte nen khar ang che.
-      A chhuah tur chu markdown format-in siam rawh.
+      A tawp berah, a tlangkawmna tha tak leh fuihna thu nen khar ang che. A chhuah tur chu markdown format-in siam rawh.
 
       **Mi 1-na (Mipa):**
       - Hming: ${details1.name}
@@ -89,6 +83,6 @@ export const generateKundliMatch = async (details1: KundliDetails, details2: Kun
     return response.text;
   } catch (error) {
     console.error("Error generating Kundli match report:", error);
-    return "A pawi khawp mai, Kundli inmilna report ka siam thei lo. Khawngaihin a kimchang i en nawn a, i bei leh dawn nia.";
+    return "A pawi khawp mai, inremna report ka siam thei lo. Khawngaihin a kimchang i en nawn a, i bei leh dawn nia.";
   }
 };

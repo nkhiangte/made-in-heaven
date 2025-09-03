@@ -62,8 +62,8 @@ const KundliMatcher: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-rose-800">AI Kundli Inmilna</h2>
-        <p className="text-gray-500 mt-2">Inneihna hlawhtling atan arsi lam inmilna en rawh.</p>
+        <h2 className="text-3xl font-bold text-rose-800">AI Matchmaker</h2>
+        <p className="text-gray-500 mt-2">Pian hun atanga in inmil dan enfiah rawh.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -84,7 +84,7 @@ const KundliMatcher: React.FC = () => {
       {isLoading && (
          <div className="mt-8 text-center">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
-            <p className="text-gray-600 mt-4">Kan AI astrologer-in arsite a zirchiang mek... rei lo te a awh ang.</p>
+            <p className="text-gray-600 mt-4">Kan AI-in in pianhun atanga in inmilna a zirchiang mek... rei lo te a awh ang.</p>
         </div>
       )}
 

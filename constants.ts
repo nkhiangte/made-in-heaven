@@ -1,3 +1,4 @@
+
 import { UserProfile } from './types';
 
 export const MOCK_PROFILES: UserProfile[] = [
@@ -8,7 +9,7 @@ export const MOCK_PROFILES: UserProfile[] = [
     gender: 'Female',
     photoUrl: 'https://picsum.photos/id/1027/400/400',
     isPhotoBlurred: false,
-    isVerified: true,
+    isVerified: false,
     religion: 'Kristian',
     caste: 'Brahmin', // (Context specific, left as is)
     location: 'Aizawl, Mizoram',

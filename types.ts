@@ -29,7 +29,8 @@ export enum Page {
   Chat = 'CHAT',
   BioGenerator = 'BIO_GENERATOR',
   CompatibilityChecker = 'COMPATIBILITY_CHECKER',
-  KundliMatcher = 'KUNDLI_MATCHER'
+  KundliMatcher = 'KUNDLI_MATCHER',
+  Verification = 'VERIFICATION'
 }
 
 // FIX: Add and export KundliDetails interface to resolve import error in KundliMatcher.tsx.
@@ -38,4 +39,9 @@ export interface KundliDetails {
   dob: string;
   tob: string;
   pob: string;
+}
+
+export enum UserRole {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
 }
