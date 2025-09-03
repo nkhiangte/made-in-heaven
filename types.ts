@@ -28,7 +28,8 @@ export enum Page {
   ProfileDetail = 'PROFILE_DETAIL',
   Chat = 'CHAT',
   BioGenerator = 'BIO_GENERATOR',
-  CompatibilityChecker = 'COMPATIBILITY_CHECKER'
+  CompatibilityChecker = 'COMPATIBILITY_CHECKER',
+  KundliMatcher = 'KUNDLI_MATCHER'
 }
 
 // FIX: Add and export KundliDetails interface to resolve import error in KundliMatcher.tsx.

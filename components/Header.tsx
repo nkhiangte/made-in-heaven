@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Page } from '../types';
 
@@ -24,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
         <nav className="hidden md:flex items-center space-x-8">
           <NavLink onClick={() => navigateTo(Page.Dashboard)}>Hma-en</NavLink>
           <NavLink onClick={() => navigateTo(Page.CompatibilityChecker)}>Inremna Enna</NavLink>
+          <NavLink onClick={() => navigateTo(Page.KundliMatcher)}>Kundli Inmilna</NavLink>
           <NavLink onClick={() => navigateTo(Page.BioGenerator)}>AI Bio Puitu</NavLink>
           <NavLink onClick={() => navigateTo(Page.Chat)}>Thuchah</NavLink>
         </nav>

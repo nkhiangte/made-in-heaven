@@ -6,6 +6,7 @@ import ProfileDetailView from './components/ProfileDetailView';
 import BioGenerator from './components/BioGenerator';
 import CompatibilityChecker from './components/CompatibilityChecker';
 import ChatView from './components/ChatView';
+import KundliMatcher from './components/KundliMatcher';
 import { Page, UserProfile } from './types';
 import { MOCK_PROFILES } from './constants';
 
@@ -32,6 +33,8 @@ const App: React.FC = () => {
         return <BioGenerator />;
       case Page.CompatibilityChecker:
         return <CompatibilityChecker />;
+      case Page.KundliMatcher:
+        return <KundliMatcher />;
       case Page.Chat:
         return <ChatView />;
       default:
