@@ -22,14 +22,17 @@ const VerificationPage: React.FC<VerificationPageProps> = ({ onVerificationSucce
   const [isSuccess, setIsSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // FIX: Replaced Node.js-specific timer type with a browser-compatible approach.
+  // The original code used `NodeJS.Timeout`, causing an error in the browser environment.
+  // The `useEffect` has been refactored to the idiomatic React pattern for handling
+  // intervals, which correctly infers the timer ID type and is safer.
   useEffect(() => {
-    let interval: NodeJS.Timeout;
     if (isLoading) {
-      interval = setInterval(() => {
+      const interval = setInterval(() => {
         setLoadingMessageIndex((prevIndex) => (prevIndex + 1) % loadingMessages.length);
       }, 1500);
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
   }, [isLoading]);
 
 
